@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" fill="none">
+  <text x="0" y="32" font-family="Georgia, serif" font-size="28" font-weight="600" fill="#FAF7D4" letter-spacing="3">MAB</text>
+  <text x="75" y="32" font-family="Georgia, serif" font-size="28" font-weight="600" fill="#EF9D0D" letter-spacing="3">WONDERLUST</text>
+  <text x="240" y="32" font-family="Georgia, serif" font-size="28" font-weight="600" fill="#FAF7D4" letter-spacing="3">SAFARIS</text>
+  <line x1="0" y1="48" x2="400" y2="48" stroke="#EF9D0D" stroke-width="1" opacity="0.5"/>
+</svg>
