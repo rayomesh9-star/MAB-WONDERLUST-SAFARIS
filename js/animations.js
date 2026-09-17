@@ -135,7 +135,7 @@
       return;
     }
 
-    const tl = gsap.timeline({ delay: 2.2 });
+    const tl = gsap.timeline({ delay: 1.2 });
 
     tl.to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
       .to('.hero-title .line span', { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: 'power3.out' }, '-=0.4')
@@ -170,11 +170,11 @@
         gsap.fromTo(el,
           { opacity: 0, y: 40 },
           {
-            opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+            opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 85%',
-              toggleActions: 'play none none none'
+              start: 'top 92%',
+              toggleActions: 'play none resume none'
             }
           }
         );
@@ -193,13 +193,13 @@
       });
     }
 
-    setTimeout(function () {
-      document.querySelectorAll('.reveal').forEach(function (el) {
-        if (!el.classList.contains('visible')) {
-          el.classList.add('visible');
-        }
-      });
-    }, 3000);
+      setTimeout(function () {
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          if (!el.classList.contains('visible')) {
+            el.classList.add('visible');
+          }
+        });
+      }, 1500);
   }
 
   function initParallaxImages() {
@@ -259,11 +259,11 @@
       gsap.fromTo(word,
         { opacity: 0, y: 60 },
         {
-          opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
           scrollTrigger: {
             trigger: word,
-            start: 'top 80%',
-            toggleActions: 'play none none none'
+            start: 'top 92%',
+            toggleActions: 'play none resume none'
           },
           delay: index * 0.15
         }
@@ -275,11 +275,11 @@
       gsap.fromTo(quote,
         { opacity: 0, y: 30 },
         {
-          opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
           scrollTrigger: {
             trigger: quote,
-            start: 'top 80%',
-            toggleActions: 'play none none none'
+            start: 'top 92%',
+            toggleActions: 'play none resume none'
           }
         }
       );

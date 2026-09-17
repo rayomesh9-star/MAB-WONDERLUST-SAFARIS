@@ -816,13 +816,13 @@ input, textarea, select {
   line-height: 1.8;
 }
 
-.reveal {
+.js .reveal {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s var(--ease-premium), transform 0.8s var(--ease-premium);
 }
 
-.reveal.visible {
+.js .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }

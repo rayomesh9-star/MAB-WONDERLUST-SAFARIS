@@ -86,8 +86,9 @@
         pageTransition.classList.add('active');
 
         setTimeout(function () {
+          window.scrollTo(0, 0);
           window.location.href = href;
-        }, 800);
+        }, 500);
       });
     });
   }
@@ -104,6 +105,13 @@
   window.addEventListener('pageshow', function (event) {
     if (event.persisted) {
       clearPageTransition();
+      window.scrollTo(0, 0);
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        el.classList.add('visible');
+      });
     }
   });
 
@@ -129,8 +137,12 @@
   }
 
   function init() {
+    window.scrollTo(0, 0);
     initNavigation();
     hideLoader();
+    if (typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.refresh();
+    }
   }
 
   if (document.readyState === 'loading') {
