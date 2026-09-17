@@ -1,6 +1,11 @@
 (function () {
   'use strict';
 
+  let scrollRevealsInitialized = false;
+
+  document.documentElement.classList.add('reveal-ready');
+  initScrollReveals();
+
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
 
