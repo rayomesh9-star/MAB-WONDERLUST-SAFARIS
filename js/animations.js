@@ -143,10 +143,43 @@
       .to('.hero-desc', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
       .to('.hero-buttons', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
       .to('.hero-scroll', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.3');
+
+    setTimeout(function () {
+      document.querySelectorAll('.hero-eyebrow, .hero-tagline, .hero-desc, .hero-buttons').forEach(function (el) {
+        if (el.style.opacity !== '1') {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }
+      });
+      document.querySelectorAll('.hero-title .line span').forEach(function (el) {
+        if (el.style.opacity !== '1') {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }
+      });
+      var scroll = document.querySelector('.hero-scroll');
+      if (scroll && scroll.style.opacity !== '1') {
+        scroll.style.opacity = '1';
+      }
+    }, 6000);
   }
 
   function initScrollReveals() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        gsap.fromTo(el,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      });
+    } else {
       const observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
@@ -158,22 +191,15 @@
       document.querySelectorAll('.reveal').forEach(function (el) {
         observer.observe(el);
       });
-      return;
     }
 
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      gsap.fromTo(el,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
-            toggleActions: 'play none none none'
-          }
+    setTimeout(function () {
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        if (!el.classList.contains('visible')) {
+          el.classList.add('visible');
         }
-      );
-    });
+      });
+    }, 3000);
   }
 
   function initParallaxImages() {

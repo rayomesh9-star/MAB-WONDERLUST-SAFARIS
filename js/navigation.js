@@ -92,12 +92,40 @@
     });
   }
 
+  function clearPageTransition() {
+    if (!pageTransition) return;
+    pageTransition.classList.remove('active');
+    const line = pageTransition.querySelector('.page-transition-line');
+    if (line) {
+      line.style.width = '0';
+    }
+  }
+
+  window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+      clearPageTransition();
+    }
+  });
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible') {
+      clearPageTransition();
+    }
+  });
+
   function hideLoader() {
     if (!loader) return;
     setTimeout(function () {
       loader.classList.add('hidden');
       document.body.style.overflow = '';
-    }, 1800);
+    }, 1200);
+
+    setTimeout(function () {
+      if (loader && !loader.classList.contains('hidden')) {
+        loader.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }, 4000);
   }
 
   function init() {
