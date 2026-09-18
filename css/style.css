@@ -1165,7 +1165,7 @@ input, textarea, select {
 
 .safari-categories {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -2799,8 +2799,52 @@ textarea.form-input {
 @media (max-width: 768px) {
   .who-we-serve { padding: 4rem 0; }
   .marquee-pill { font-size: 1rem; padding: 0.6rem 1.5rem; }
+  .safari-list { grid-template-columns: 1fr; padding: 0 1.5rem; }
 }
 
+/* ==================== SAFARI LIST ==================== */
+.safari-list-section {
+  background: var(--cream);
+  color: var(--black);
+  position: relative;
+  padding: 6rem 0;
+}
+.safari-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+.safari-list li a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 100px;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--black);
+  transition: all 0.3s var(--ease-premium);
+}
+.safari-list li a:hover,
+.safari-list li a:focus {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--black);
+}
+.safari-list li a::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--orange);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
 /* ==================== ABOUT US (HOME) ==================== */
 .about-home {
   background: var(--black);
