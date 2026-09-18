@@ -41,8 +41,8 @@
   .mission-panels { grid-template-columns: 1fr; }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
   .why-us-row { grid-template-columns: 1fr; gap: 2rem; }
-  .why-us-row:nth-child(even) .why-us-row-image,
-  .why-us-row:nth-child(even) .why-us-row-content { order: unset; }
+  .why-us-row-image { order: 2; }
+  .why-us-row-content { order: 1; }
   .why-us-row-image img { height: 300px; }
   .about-home-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-home-image { order: -1; }
