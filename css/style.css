@@ -313,6 +313,13 @@ input, textarea, select {
   color: var(--orange);
 }
 
+.nav-logo-img {
+  height: 30px;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -2390,6 +2397,13 @@ textarea.form-input {
 }
 
 .footer-brand span { color: var(--orange); }
+
+.footer-logo-img {
+  height: 50px;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
 
 .footer-tagline {
   font-family: var(--font-heading);

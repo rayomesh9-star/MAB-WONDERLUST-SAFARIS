@@ -102,6 +102,7 @@
 
   .nav { padding: 0.8rem 1rem; }
   .nav-logo { font-size: 0.8rem; }
+  .nav-logo-img { height: 24px; }
 
   .why-us-grid { grid-template-columns: 1fr; }
 
