@@ -2049,18 +2049,18 @@ input, textarea, select {
 
 /* ==================== TRAVEL STORIES ==================== */
 .stories {
-  background: var(--cream);
-  color: var(--black);
+  background: var(--black);
+  color: var(--cream);
   position: relative;
 }
 
 .stories .section-title,
 .stories .section-desc {
-  color: var(--black);
+  color: var(--cream);
 }
 
 .stories .section-desc {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(250, 247, 212, 0.65);
 }
 
 .stories-grid {
@@ -2075,13 +2075,13 @@ input, textarea, select {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(250, 247, 212, 0.08);
   transition: all 0.5s var(--ease-premium);
 }
 
 .story-card:hover {
   border-color: rgba(239, 157, 13, 0.4);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
 .story-card:nth-child(1) { grid-column: span 7; min-height: 450px; }
