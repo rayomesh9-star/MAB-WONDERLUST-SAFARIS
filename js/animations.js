@@ -170,41 +170,25 @@
   }
 
   function initScrollReveals() {
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      document.querySelectorAll('.reveal').forEach(function (el) {
-        gsap.fromTo(el,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 92%',
-              toggleActions: 'play none resume none'
-            }
-          }
-        );
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
-    } else {
-      const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
+    }, { threshold: 0.1 });
 
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      observer.observe(el);
+    });
+
+    setTimeout(function () {
       document.querySelectorAll('.reveal').forEach(function (el) {
-        observer.observe(el);
+        if (!el.classList.contains('visible')) {
+          el.classList.add('visible');
+        }
       });
-    }
-
-      setTimeout(function () {
-        document.querySelectorAll('.reveal').forEach(function (el) {
-          if (!el.classList.contains('visible')) {
-            el.classList.add('visible');
-          }
-        });
-      }, 1500);
+    }, 1500);
   }
 
   function initParallaxImages() {

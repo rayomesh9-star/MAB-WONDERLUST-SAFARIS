@@ -818,8 +818,8 @@ input, textarea, select {
 }
 
 .js.reveal-ready .reveal {
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.8s var(--ease-premium), transform 0.8s var(--ease-premium);
 }
 
