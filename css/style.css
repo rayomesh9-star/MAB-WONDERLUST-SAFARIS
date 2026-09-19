@@ -967,12 +967,22 @@ input, textarea, select {
   margin-bottom: 5rem;
 }
 
+.experiences-header .section-label {
+  margin-bottom: 0.75rem;
+}
+
 .experiences-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.experiences-cta {
+  display: block;
+  max-width: fit-content;
+  margin: 3rem auto 0;
 }
 
 .experience-card {
@@ -1585,8 +1595,8 @@ input, textarea, select {
   font-weight: 300;
   line-height: 0.95;
   color: var(--black);
-  opacity: 0;
-  transform: translateY(60px);
+  opacity: 1;
+  transform: none;
   transition: opacity 1s var(--ease-premium), transform 1s var(--ease-premium), color 0.3s;
   cursor: default;
   will-change: transform, opacity;
@@ -1613,8 +1623,8 @@ input, textarea, select {
   color: rgba(0, 0, 0, 0.6);
   max-width: 500px;
   line-height: 1.6;
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: none;
   transition: opacity 1s var(--ease-premium) 0.5s, transform 1s var(--ease-premium) 0.5s;
 }
 

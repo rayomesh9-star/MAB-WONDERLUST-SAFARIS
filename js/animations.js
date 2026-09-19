@@ -38,7 +38,10 @@
         el.style.opacity = '1';
         el.style.transform = 'none';
       });
-      document.querySelector('.hero-scroll').style.opacity = '1';
+      const heroScroll = document.querySelector('.hero-scroll');
+      if (heroScroll) {
+        heroScroll.style.opacity = '1';
+      }
     }
   }
 
@@ -136,7 +139,10 @@
         el.style.opacity = '1';
         el.style.transform = 'none';
       });
-      document.querySelector('.hero-scroll').style.opacity = '1';
+      const heroScroll = document.querySelector('.hero-scroll');
+      if (heroScroll) {
+        heroScroll.style.opacity = '1';
+      }
       return;
     }
 
