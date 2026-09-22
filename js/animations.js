@@ -26,6 +26,7 @@
       initMagneticButtons();
       initFormAnimations();
       initHeroMouseInteraction();
+      initJourneyPlanner();
     } else {
       document.querySelectorAll('.reveal').forEach(function (el) {
         el.classList.add('visible');
@@ -348,6 +349,91 @@
         }
       });
     });
+  }
+
+  function initJourneyPlanner() {
+    const plannerBtn = document.getElementById('journey-planner-btn');
+    const plannerSection = document.getElementById('journey-planner');
+    if (!plannerBtn || !plannerSection) return;
+
+    let isPlannerOpen = false;
+
+    plannerBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      plannerBtn.classList.add('btn-clicked');
+      setTimeout(function () {
+        plannerBtn.classList.remove('btn-clicked');
+      }, 350);
+
+      if (!isPlannerOpen) {
+        plannerSection.style.display = 'block';
+        plannerSection.style.opacity = '0';
+        requestAnimationFrame(function () {
+          plannerSection.style.transition = 'opacity 0.6s var(--ease-premium)';
+          plannerSection.style.opacity = '1';
+        });
+        plannerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        isPlannerOpen = true;
+      } else {
+        plannerSection.style.opacity = '0';
+        plannerSection.style.transition = 'opacity 0.4s var(--ease-premium)';
+        setTimeout(function () {
+          plannerSection.style.display = 'none';
+        }, 400);
+        isPlannerOpen = false;
+      }
+    });
+
+    document.querySelectorAll('.journey-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        document.querySelectorAll('.journey-card').forEach(function (c) {
+          c.classList.remove('journey-card-selected');
+        });
+        card.classList.add('journey-card-selected');
+
+        const type = card.getAttribute('data-type');
+        const typeInput = document.getElementById('plan-type');
+        if (typeInput) {
+          typeInput.value = type;
+        }
+
+        const formWrapper = document.querySelector('.planner-form-wrapper');
+        if (formWrapper) {
+          formWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    const plannerForm = document.getElementById('planner-form');
+    if (plannerForm) {
+      plannerForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const submitBtn = plannerForm.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.classList.add('btn-clicked');
+          setTimeout(function () {
+            submitBtn.classList.remove('btn-clicked');
+          }, 350);
+        }
+
+        const nameInput = plannerForm.querySelector('#plan-name');
+        if (nameInput) {
+          const name = nameInput.value;
+          if (submitBtn) {
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span>Thank You, ' + name.split(' ')[0] + '!</span><span class="btn-arrow">&#10003;</span>';
+            setTimeout(function () {
+              submitBtn.innerHTML = originalText;
+              plannerForm.reset();
+              document.querySelectorAll('.journey-card').forEach(function (c) {
+                c.classList.remove('journey-card-selected');
+              });
+            }, 2500);
+          }
+        }
+      });
+    }
   }
 
   function initHeroMouseInteraction() {

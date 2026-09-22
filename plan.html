@@ -77,9 +77,108 @@
           <span class="custom-journeys-feature">Private</span>
           <span class="custom-journeys-feature">Groups</span>
         </div>
-        <a href="contact.html" class="btn btn-primary" data-hover><span>Plan Your Journey</span><span class="btn-arrow">→</span></a>
-      </div>
-    </section>
+        <button class="btn btn-primary" data-hover id="journey-planner-btn"><span>Plan Your Journey</span><span class="btn-arrow">→</span></button>
+       </div>
+     </section>
+
+     <!-- ==================== JOURNEY PLANNER ==================== -->
+     <section class="section journey-planner" id="journey-planner" aria-labelledby="planner-heading" style="display:none;">
+       <div class="journey-planner-inner reveal">
+         <div class="planner-header">
+           <p class="section-label">Start Planning</p>
+           <h2 class="section-title" id="planner-heading">TELL US ABOUT <br><em style="color: var(--orange); font-style: italic;">YOUR DREAM TRIP</em></h2>
+           <p class="planner-desc">Choose a journey style and share your preferences — we'll craft an unforgettable itinerary tailored just for you.</p>
+         </div>
+
+         <div class="journey-cards">
+           <div class="journey-card reveal" data-type="safari">
+             <div class="journey-card-icon" aria-hidden="true"><i class="fas fa-paw"></i></div>
+             <h4 class="journey-card-title">Safari & Wildlife</h4>
+             <p class="journey-card-desc">Classic safari experiences with wildlife encounters across Kenya's most iconic reserves.</p>
+             <span class="journey-card-arrow"><i class="fas fa-arrow-right"></i></span>
+           </div>
+           <div class="journey-card reveal reveal-delay-1" data-type="cultural">
+             <div class="journey-card-icon" aria-hidden="true"><i class="fas fa-masks-theater"></i></div>
+             <h4 class="journey-card-title">Cultural Heritage</h4>
+             <p class="journey-card-desc">Immerse yourself in local traditions, communities, and ancient cultural experiences.</p>
+             <span class="journey-card-arrow"><i class="fas fa-arrow-right"></i></span>
+           </div>
+           <div class="journey-card reveal reveal-delay-2" data-type="adventure">
+             <div class="journey-card-icon" aria-hidden="true"><i class="fas fa-mountain"></i></div>
+             <h4 class="journey-card-title">Adventure</h4>
+             <p class="journey-card-desc">Thrilling outdoor activities from mountain climbing to white-water rafting.</p>
+             <span class="journey-card-arrow"><i class="fas fa-arrow-right"></i></span>
+           </div>
+           <div class="journey-card reveal" data-type="family">
+             <div class="journey-card-icon" aria-hidden="true"><i class="fas fa-users"></i></div>
+             <h4 class="journey-card-title">Family</h4>
+             <p class="journey-card-desc">Kid-friendly itineraries designed for family bonding and shared discoveries.</p>
+             <span class="journey-card-arrow"><i class="fas fa-arrow-right"></i></span>
+           </div>
+           <div class="journey-card reveal reveal-delay-1" data-type="private">
+             <div class="journey-card-icon" aria-hidden="true"><i class="fas fa-crown"></i></div>
+             <h4 class="journey-card-title">Private</h4>
+             <p class="journey-card-desc">Exclusive, private experiences with dedicated guides and luxury accommodations.</p>
+             <span class="journey-card-arrow"><i class="fas fa-arrow-right"></i></span>
+           </div>
+           <div class="journey-card reveal reveal-delay-2" data-type="group">
+             <div class="journey-card-icon" aria-hidden="true"><i class="fas fa-people-group"></i></div>
+             <h4 class="journey-card-title">Group</h4>
+             <p class="journey-card-desc">Shared adventures with fellow travelers — social, affordable, and unforgettable.</p>
+             <span class="journey-card-arrow"><i class="fas fa-arrow-right"></i></span>
+           </div>
+         </div>
+
+         <div class="planner-form-wrapper reveal reveal-delay-1">
+           <h3 class="planner-form-title">YOUR DETAILS</h3>
+           <form class="planner-form" id="planner-form" aria-label="Journey planning form">
+             <div class="form-row">
+               <div class="form-group">
+                 <input type="text" id="plan-name" name="name" class="form-input" placeholder=" " required>
+                 <label for="plan-name" class="form-label">Full Name</label>
+               </div>
+               <div class="form-group">
+                 <input type="email" id="plan-email" name="email" class="form-input" placeholder=" " required>
+                 <label for="plan-email" class="form-label">Email</label>
+               </div>
+             </div>
+             <div class="form-row">
+               <div class="form-group">
+                 <input type="tel" id="plan-phone" name="phone" class="form-input" placeholder=" ">
+                 <label for="plan-phone" class="form-label">Phone</label>
+               </div>
+               <div class="form-group">
+                 <input type="text" id="plan-travelers" name="travelers" class="form-input" placeholder=" ">
+                 <label for="plan-travelers" class="form-label">Number of Travelers</label>
+               </div>
+             </div>
+             <div class="form-row">
+               <div class="form-group">
+                 <input type="text" id="plan-date" name="date" class="form-input" placeholder=" " onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">
+                 <label for="plan-date" class="form-label">Preferred Travel Date</label>
+               </div>
+               <div class="form-group">
+                 <select id="plan-duration" name="duration" class="form-input">
+                   <option value="" disabled selected>Trip Duration</option>
+                   <option value="3-5">3-5 Days</option>
+                   <option value="6-10">6-10 Days</option>
+                   <option value="11-14">11-14 Days</option>
+                   <option value="14+">14+ Days</option>
+                 </select>
+                 <label for="plan-duration" class="form-label">Trip Duration</label>
+               </div>
+             </div>
+             <div class="form-group">
+               <textarea id="plan-message" name="message" class="form-input" rows="3" placeholder=" "></textarea>
+               <label for="plan-message" class="form-label">Tell Us More About Your Dream Trip</label>
+             </div>
+             <div class="form-submit">
+               <button type="submit" class="btn btn-primary" data-hover><span>Submit My Plan</span><span class="btn-arrow">&#8594;</span></button>
+             </div>
+           </form>
+         </div>
+       </div>
+     </section>
 
     <!-- ==================== HOW WE PLAN ==================== -->
     <section class="section how-we-plan" id="how-we-plan" aria-labelledby="how-heading">

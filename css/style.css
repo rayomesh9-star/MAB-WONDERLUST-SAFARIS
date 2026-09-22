@@ -1048,6 +1048,38 @@ input, textarea, select {
   );
 }
 
+.experience-card[data-duotone] .experience-card-bg img {
+  filter: saturate(0.25) contrast(1.15) brightness(0.85);
+  transition: transform 1s var(--ease-premium), filter 0.8s var(--ease-premium);
+}
+
+.experience-card[data-duotone]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(237, 154, 12, 0.4) 0%,
+    rgba(219, 154, 100, 0.3) 50%,
+    rgba(237, 154, 12, 0.2) 100%
+  );
+  mix-blend-mode: multiply;
+  z-index: 2;
+  transition: opacity 0.8s var(--ease-premium);
+  pointer-events: none;
+}
+
+.experience-card[data-duotone]:hover .experience-card-bg img {
+  filter: saturate(1) contrast(1) brightness(1);
+}
+
+.experience-card[data-duotone]:hover::before {
+  opacity: 0.15;
+}
+
 .experience-card-content {
   position: absolute;
   bottom: 0;
@@ -1303,11 +1335,27 @@ input, textarea, select {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1s var(--ease-premium);
+  transition: transform 1s var(--ease-premium), filter 0.8s var(--ease-premium);
+  filter: saturate(0.25) contrast(1.15) brightness(0.85);
 }
 
-.culture-image-panel:hover img {
-  transform: scale(1.05);
+.culture-image-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(237, 154, 12, 0.45) 0%,
+    rgba(219, 154, 100, 0.35) 50%,
+    rgba(237, 154, 12, 0.25) 100%
+  );
+  mix-blend-mode: multiply;
+  z-index: 1;
+  transition: opacity 0.8s var(--ease-premium);
+  pointer-events: none;
 }
 
 .culture-image-panel::after {
@@ -1318,6 +1366,17 @@ input, textarea, select {
   width: 100%;
   height: 50%;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.culture-image-panel:hover img {
+  transform: scale(1.05);
+  filter: saturate(1) contrast(1) brightness(1);
+}
+
+.culture-image-panel:hover::before {
+  opacity: 0.15;
 }
 
 .culture-image-label {
@@ -1329,6 +1388,11 @@ input, textarea, select {
   font-weight: 500;
   color: var(--cream);
   z-index: 2;
+  transition: color 0.4s var(--ease-premium);
+}
+
+.culture-image-panel:hover .culture-image-label {
+  color: var(--amber);
 }
 
 .culture-features {
@@ -3221,6 +3285,214 @@ textarea.form-input {
 
 @media (max-width: 768px) {
   .plan-steps { grid-template-columns: 1fr; }
+}
+
+/* ==================== JOURNEY PLANNER ==================== */
+.journey-planner {
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 3rem;
+}
+
+.journey-planner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(239, 157, 13, 0.05) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+@keyframes plannerReveal {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.journey-planner-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: plannerReveal 0.8s var(--ease-premium) forwards;
+}
+
+.planner-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.planner-desc {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(250, 247, 212, 0.6);
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  line-height: 1.8;
+}
+
+.journey-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.journey-card {
+  position: relative;
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(250, 247, 212, 0.08);
+  cursor: pointer;
+  transition: all 0.5s var(--ease-premium);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.journey-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-premium);
+}
+
+.journey-card:hover {
+  border-color: rgba(239, 157, 13, 0.35);
+  background: rgba(239, 157, 13, 0.03);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(239, 157, 13, 0.06);
+}
+
+.journey-card:hover::before {
+  transform: scaleX(1);
+}
+
+.journey-card:hover .journey-card-icon {
+  transform: scale(1.15) rotate(5deg);
+  color: var(--amber);
+}
+
+.journey-card:hover .journey-card-arrow {
+  transform: translateX(6px);
+  opacity: 1;
+}
+
+.journey-card-icon {
+  font-size: 2rem;
+  color: var(--orange);
+  margin-bottom: 1.5rem;
+  transition: all 0.5s var(--ease-premium);
+}
+
+.journey-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 0.75rem;
+  transition: transform 0.4s var(--ease-premium);
+}
+
+.journey-card:hover .journey-card-title {
+  transform: translateX(4px);
+}
+
+.journey-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(250, 247, 212, 0.5);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.journey-card-arrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--orange);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.4s var(--ease-premium);
+}
+
+.journey-card-selected {
+  border-color: var(--orange) !important;
+  background: rgba(239, 157, 13, 0.06) !important;
+  box-shadow: 0 0 30px rgba(239, 157, 13, 0.1) !important;
+}
+
+.journey-card-selected .journey-card-arrow {
+  opacity: 1;
+  transform: translateX(6px);
+}
+
+.planner-form-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.planner-form-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--orange);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.planner-form {
+  padding: 2.5rem;
+  border: 1px solid rgba(250, 247, 212, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.journey-planner .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 0;
+}
+
+.journey-planner .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.journey-planner .form-submit {
+  margin-top: 0.5rem;
+}
+
+@keyframes btnClickPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+
+.btn-clicked {
+  animation: btnClickPulse 0.35s var(--ease-premium);
+}
+
+@media (max-width: 1024px) {
+  .journey-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .journey-planner { padding: 4rem 1.5rem; }
+  .journey-cards { grid-template-columns: 1fr; }
+  .journey-planner .form-row { grid-template-columns: 1fr; gap: 0; }
+  .planner-form { padding: 1.5rem; }
 }
 
 /* ==================== WHAT'S INCLUDED ==================== */
