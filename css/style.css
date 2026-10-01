@@ -2543,8 +2543,9 @@ textarea.form-input {
   align-items: center;
   justify-content: center;
   color: rgba(250, 247, 212, 0.4);
-  font-size: 0.75rem;
+  font-size: 1.1rem;
   transition: all 0.3s var(--ease-premium);
+  text-decoration: none;
 }
 
 .footer-social-link:hover {
@@ -3146,8 +3147,9 @@ textarea.form-input {
   align-items: center;
   justify-content: center;
   color: rgba(250, 247, 212, 0.5);
-  font-size: 0.75rem;
+  font-size: 1.1rem;
   transition: all 0.3s var(--ease-premium);
+  text-decoration: none;
 }
 
 .contact-home-social-link:hover {
