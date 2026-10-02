@@ -2024,13 +2024,17 @@ input, textarea, select {
   transform: translateX(5px);
 }
 
-.destination-type {
+.destination-desc {
   font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--orange);
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(250, 247, 212, 0.65);
+  line-height: 1.55;
+  margin-top: 0.4rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .destinations-placeholder {
