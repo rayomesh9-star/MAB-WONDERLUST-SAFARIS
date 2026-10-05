@@ -20,7 +20,6 @@
       initHeroAnimations();
       initScrollReveals();
       initParallaxImages();
-      initExperienceCards();
       initPhilosophyWords();
       initHorizontalScroll();
       initMagneticButtons();
@@ -231,39 +230,6 @@
           end: 'bottom top',
           scrub: true
         }
-      });
-    });
-  }
-
-  function initExperienceCards() {
-    document.querySelectorAll('.experience-card').forEach(function (card) {
-      let rect = null;
-      let pending = false;
-
-      card.addEventListener('mouseenter', function () {
-        rect = card.getBoundingClientRect();
-      });
-
-      card.addEventListener('mousemove', function (e) {
-        if (!rect) return;
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-        if (!pending) {
-          pending = true;
-          requestAnimationFrame(function () {
-            card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
-            pending = false;
-          });
-        }
-      });
-
-      card.addEventListener('mouseleave', function () {
-        rect = null;
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
       });
     });
   }
