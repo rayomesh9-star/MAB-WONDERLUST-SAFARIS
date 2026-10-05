@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>document.documentElement.classList.add('js')</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story Gallery — MAB WONDERLUST SAFARIS</title>
+  <meta name="description" content="Photo galleries for our travel stories: family tours, private tours, group tours, customized tours, and storytelling experiences.">
+  <meta property="og:title" content="Story Gallery — MAB WONDERLUST SAFARIS">
+  <meta property="og:description" content="Photo galleries for each travel story category.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/logo/ChatGPT Image Sep 15, 2026, 10_46_48 AM.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="gallery-viewer-body">
+
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <header class="gallery-viewer-bar">
+    <a href="travel-stories.html" class="gallery-back">
+      <i class="bi bi-arrow-left" aria-hidden="true"></i>
+      <span>All Stories</span>
+    </a>
+    <p class="gallery-viewer-brand">MAB WONDERLUST</p>
+  </header>
+
+  <main id="main-content" class="gallery-viewer-main">
+    <div class="gallery-viewer-head">
+      <p class="gallery-number" id="viewerNumber">01 &mdash;</p>
+      <h1 class="gallery-title" id="viewerTitle">Loading</h1>
+      <p class="gallery-desc" id="viewerDesc"></p>
+    </div>
+    <div class="gallery-grid" id="viewerGrid"></div>
+    <p class="gallery-empty" id="viewerEmpty" hidden>No photos in this collection yet.</p>
+  </main>
+
+  <script>
+  (function () {
+    var IMG = 'assets/images/';
+
+    var GALLERIES = {
+      'family-tours': {
+        number: '01',
+        title: 'Family Tours',
+        desc: 'Multi-generational safaris designed for all ages — gentle game drives, cultural visits, bush meals, and guides who know how to keep every generation engaged.',
+        photos: [
+          { file: 'elephants.jpeg', alt: 'Elephant family on safari', wide: true },
+          { file: '1000393211.jpg', alt: 'Elephants on the savannah' },
+          { file: 'make-and-female-lion.jpeg', alt: 'Male and female lion resting' },
+          { file: 'male-lion.jpeg', alt: 'Male lion portrait' }
+        ]
+      },
+      'private-tours': {
+        number: '02',
+        title: 'Private Tours',
+        desc: 'Tailored for privacy and pace — your own vehicle, your own guide, your own schedule. Ideal for couples, small groups, and repeat travelers.',
+        photos: [
+          { file: 'male-lion.jpeg', alt: 'Male lion portrait', wide: true },
+          { file: 'female-lion.jpeg', alt: 'Female lion on the savannah' },
+          { file: 'maasai mara.jpg', alt: 'Private safari in Maasai Mara' },
+          { file: 'wild safaris.jpg', alt: 'Private wildlife experience' }
+        ]
+      },
+      'group-tours': {
+        number: '03',
+        title: 'Group Tours',
+        desc: 'Shared adventures with a social edge — small-group departures, new friends, and the kind of collective excitement that makes a safari unforgettable.',
+        photos: [
+          { file: 'lions.jpeg', alt: 'Lion pride on the savannah', wide: true },
+          { file: 'lions-2.jpeg', alt: 'Lions resting together' },
+          { file: 'cheetah.jpeg', alt: 'Cheetah on the plains' },
+          { file: 'elephants.jpeg', alt: 'Elephant herd' }
+        ]
+      },
+      'customized-tours': {
+        number: '04',
+        title: 'Customized Tours',
+        desc: 'Your journey, your rules. Combine destinations, pace, accommodation style, and activities to match exactly what you want from Africa.',
+        photos: [
+          { file: 'cheetah.jpeg', alt: 'Cheetah on the move', wide: true },
+          { file: 'rhino.jpeg', alt: 'Rhino in the wild' },
+          { file: 'tsavo.jpg', alt: 'Tsavo wilderness' },
+          { file: 'amboseli.jpg', alt: 'Amboseli landscape' }
+        ]
+      },
+      'storytelling-experiences': {
+        number: '05',
+        title: 'Storytelling Experiences',
+        desc: 'Elders, warriors, and storytellers share the narratives that shaped Kenya — around the fire, in the village, and under the African sky.',
+        photos: [
+          { file: 'rhino.jpeg', alt: 'Rhino in the wild', wide: true },
+          { file: 'rhino-2.jpeg', alt: 'Rhino close-up' },
+          { file: 'wild-beasts.jpeg', alt: 'Wild beasts on the savannah' },
+          { file: 'elephants-2.jpeg', alt: 'Elephants in the wild' },
+          { file: '1000393214.jpg', alt: 'Kenyan cultural ceremony' }
+        ]
+      }
+    };
+
+    var ORDER = ['family-tours', 'private-tours', 'group-tours', 'customized-tours', 'storytelling-experiences'];
+
+    var grid = document.getElementById('viewerGrid');
+    var emptyMsg = document.getElementById('viewerEmpty');
+    var numEl = document.getElementById('viewerNumber');
+    var titleEl = document.getElementById('viewerTitle');
+    var descEl = document.getElementById('viewerDesc');
+
+    function render(slug) {
+      var data = GALLERIES[slug];
+
+      if (!data) {
+        titleEl.textContent = 'Collection not found';
+        descEl.textContent = 'Head back to travel stories and choose a story.';
+        numEl.textContent = '—';
+        emptyMsg.hidden = true;
+        grid.innerHTML = '';
+        return;
+      }
+
+      document.title = data.title.replace(/&amp;/g, '&') + ' — MAB WONDERLUST SAFARIS';
+      numEl.innerHTML = data.number + ' &mdash;';
+      titleEl.innerHTML = data.title;
+      descEl.textContent = data.desc.replace(/&rsquo;/g, '\u2019');
+
+      if (!data.photos.length) {
+        emptyMsg.hidden = false;
+        grid.innerHTML = '';
+        return;
+      }
+
+      emptyMsg.hidden = true;
+      grid.innerHTML = data.photos.map(function (p) {
+        return '<figure class="gallery-item' + (p.wide ? ' gallery-item-wide' : '') + '">' +
+               '<img src="' + IMG + p.file + '" alt="' + p.alt + '" loading="lazy">' +
+               '</figure>';
+      }).join('');
+    }
+
+    function currentSlug() {
+      var raw = (window.location.hash || '').replace(/^#/, '');
+      return decodeURIComponent(raw).toLowerCase();
+    }
+
+    window.addEventListener('hashchange', function () {
+      render(currentSlug());
+    });
+
+    render(currentSlug());
+  })();
+  </script>
+</body>
+</html>
