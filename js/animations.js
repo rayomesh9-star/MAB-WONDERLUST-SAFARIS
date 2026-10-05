@@ -81,21 +81,27 @@
 
     let mouseX = 0, mouseY = 0;
     let ringX = 0, ringY = 0;
+    let cursorPending = false;
+
+    function paintCursor() {
+      cursorDot.style.transform = 'translate3d(calc(' + mouseX + 'px - 50%), calc(' + mouseY + 'px - 50%), 0)';
+      cursorLabel.style.transform = 'translate3d(calc(' + mouseX + 'px - 50%), calc(' + (mouseY - 40) + 'px - 50%), 0)';
+      cursorPending = false;
+    }
 
     document.addEventListener('mousemove', function (e) {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      cursorDot.style.left = mouseX + 'px';
-      cursorDot.style.top = mouseY + 'px';
-      cursorLabel.style.left = mouseX + 'px';
-      cursorLabel.style.top = (mouseY - 40) + 'px';
-    });
+      if (!cursorPending) {
+        cursorPending = true;
+        requestAnimationFrame(paintCursor);
+      }
+    }, { passive: true });
 
     function animateRing() {
       ringX += (mouseX - ringX) * 0.12;
       ringY += (mouseY - ringY) * 0.12;
-      cursorRing.style.left = ringX + 'px';
-      cursorRing.style.top = ringY + 'px';
+      cursorRing.style.transform = 'translate3d(calc(' + ringX + 'px - 50%), calc(' + ringY + 'px - 50%), 0)';
       requestAnimationFrame(animateRing);
     }
     animateRing();
@@ -231,18 +237,32 @@
 
   function initExperienceCards() {
     document.querySelectorAll('.experience-card').forEach(function (card) {
+      let rect = null;
+      let pending = false;
+
+      card.addEventListener('mouseenter', function () {
+        rect = card.getBoundingClientRect();
+      });
+
       card.addEventListener('mousemove', function (e) {
-        const rect = card.getBoundingClientRect();
+        if (!rect) return;
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
         const rotateX = (y - centerY) / 20;
         const rotateY = (centerX - x) / 20;
-        card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+        if (!pending) {
+          pending = true;
+          requestAnimationFrame(function () {
+            card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+            pending = false;
+          });
+        }
       });
 
       card.addEventListener('mouseleave', function () {
+        rect = null;
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
       });
     });
@@ -282,14 +302,20 @@
     }
 
     document.querySelectorAll('.philosophy-word').forEach(function (word) {
+      let rect = null;
+      word.addEventListener('mouseenter', function () {
+        rect = word.getBoundingClientRect();
+      });
+
       word.addEventListener('mousemove', function (e) {
-        const rect = word.getBoundingClientRect();
+        if (!rect) return;
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
         word.style.transform = 'translateY(0) translateX(' + (x * 10) + 'px) translateY(' + (y * 5) + 'px)';
       });
 
       word.addEventListener('mouseleave', function () {
+        rect = null;
         word.style.transform = '';
       });
     });
@@ -319,14 +345,20 @@
     if (isTouchDevice) return;
 
     document.querySelectorAll('.btn, .nav-cta').forEach(function (btn) {
+      let rect = null;
+      btn.addEventListener('mouseenter', function () {
+        rect = btn.getBoundingClientRect();
+      });
+
       btn.addEventListener('mousemove', function (e) {
-        const rect = btn.getBoundingClientRect();
+        if (!rect) return;
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
         btn.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.15) + 'px)';
       });
 
       btn.addEventListener('mouseleave', function () {
+        rect = null;
         btn.style.transform = '';
       });
     });
@@ -443,11 +475,17 @@
     const heroBg = document.querySelector('.hero-bg');
     if (!hero || !heroBg) return;
 
+    let pending = false;
     hero.addEventListener('mousemove', function (e) {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      heroBg.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
-    });
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(function () {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+        heroBg.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
+        pending = false;
+      });
+    }, { passive: true });
   }
 
   if (document.readyState === 'loading') {
