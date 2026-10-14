@@ -3887,3 +3887,78 @@ textarea.form-input {
   .particle { display: none; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ==================== ACCOMMODATION MASONRY ==================== */
+.accommodation-grid {
+  column-count: 3;
+  column-gap: 1.5rem;
+  padding: 1rem;
+}
+@media (max-width: 900px) {
+  .accommodation-grid { column-count: 2; }
+}
+@media (max-width: 600px) {
+  .accommodation-grid { column-count: 1; }
+}
+.accommodation-grid .experience-card {
+  display: block;
+  position: static !important;
+  width: 100% !important;
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+  transform: none !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 0.75rem;
+}
+.accommodation-grid .experience-card .experience-card-bg {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%;
+  border-radius: 0.75rem 0.75rem 0 0;
+  overflow: hidden;
+}
+.accommodation-grid .experience-card .experience-card-bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-premium);
+}
+.accommodation-grid .experience-card:hover .experience-card-bg img {
+  transform: scale(1.1);
+}
+.accommodation-grid .experience-card .experience-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.05) 100%);
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+.accommodation-grid .experience-card .experience-card-content {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem;
+  background: rgba(15, 15, 15, 0.92);
+  border-radius: 0 0 0.75rem 0.75rem;
+}
+.accommodation-grid .experience-card .experience-title {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  margin-bottom: 0.75rem;
+  color: var(--cream);
+  transform: none !important;
+}
+.accommodation-grid .experience-card .experience-card-desc {
+  font-size: 0.8rem;
+  color: rgba(250, 247, 212, 0.6);
+  line-height: 1.7;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.accommodation-grid .experience-card-glow { display: none; }
+.accommodation-grid .experience-arrow { display: none; }
