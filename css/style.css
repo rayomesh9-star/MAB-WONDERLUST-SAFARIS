@@ -979,7 +979,7 @@ input, textarea, select {
 
 .experiences-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -1236,7 +1236,7 @@ input, textarea, select {
 
 .safari-categories {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 
@@ -1452,7 +1452,7 @@ input, textarea, select {
 }
 
 @media (max-width: 1024px) {
-  .culture-features { grid-template-columns: repeat(3, 1fr); }
+  .culture-features { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -1602,7 +1602,7 @@ input, textarea, select {
 
 .conservation-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
   max-width: 900px;
   margin: 0 auto;
@@ -1793,7 +1793,7 @@ input, textarea, select {
 }
 
 @media (max-width: 1200px) {
-  .why-us-grid { grid-template-columns: repeat(3, 1fr); }
+  .why-us-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -1968,7 +1968,7 @@ input, textarea, select {
 
 .destinations-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
@@ -2673,7 +2673,7 @@ textarea.form-input {
 
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-top: 4rem;
 }
@@ -3251,7 +3251,7 @@ textarea.form-input {
 
 .plan-steps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -3365,7 +3365,7 @@ textarea.form-input {
 
 .journey-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-bottom: 4rem;
 }
@@ -3542,7 +3542,7 @@ textarea.form-input {
 
 .included-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -3674,7 +3674,7 @@ textarea.form-input {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
 }
 
@@ -3830,7 +3830,7 @@ textarea.form-input {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
 }
 
@@ -3892,10 +3892,10 @@ textarea.form-input {
 /* ==================== ACCOMMODATION GRID ==================== */
 .accommodation-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
-@media (max-width: 900px) { .accommodation-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .accommodation-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .accommodation-grid { grid-template-columns: 1fr; } }
 .accommodation-grid { align-items: stretch; }
 .accommodation-grid .experience-card {
