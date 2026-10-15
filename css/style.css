@@ -3959,25 +3959,43 @@ textarea.form-input {
   line-height: 1.6;
   margin: 0;
 }
-/* ==================== WHY CHOOSE ICONS ==================== */
+/* ==================== WHY CHOOSE CARDS ==================== */
+.why-us-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .why-us-row {
-  position: relative;
   display: flex;
   align-items: center;
   gap: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.why-us-row:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 140, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .why-us-row.center-all {
   flex-direction: column;
   text-align: center;
-  padding: 2rem;
 }
 
 .why-us-icon-container {
-  position: relative;
+  flex-shrink: 0;
   width: 80px;
   height: 80px;
-  border-radius: 50%;
+  border-radius: 16px;
   background: linear-gradient(135deg, var(--orange), var(--gold));
   display: flex;
   align-items: center;
@@ -3989,17 +4007,43 @@ textarea.form-input {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 10;
   will-change: transform, box-shadow;
-  margin: 0 auto 1rem auto;
 }
 
 .why-us-icon-container:hover {
-  transform: scale(1.15) translateY(-5px);
+  transform: scale(1.1) rotate(5deg);
   box-shadow: 0 8px 25px rgba(255, 140, 0, 0.5);
   background: linear-gradient(135deg, var(--gold), var(--orange));
 }
 
 .why-us-icon-container:active {
-  transform: scale(1.05) translateY(-2px);
+  transform: scale(1.05) rotate(2deg);
+}
+
+.why-us-row-content {
+  flex: 1;
+}
+
+.why-us-row-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 2px;
+  margin: 0 0 0.5rem 0;
+}
+
+.why-us-row-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--cream);
+  margin: 0 0 0.75rem 0;
+  letter-spacing: 0.5px;
+}
+
+.why-us-row-desc {
+  font-size: 0.95rem;
+  color: rgba(250, 247, 212, 0.7);
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* Icon typography styling */
