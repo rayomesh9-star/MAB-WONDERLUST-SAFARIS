@@ -3961,10 +3961,11 @@ textarea.form-input {
 }
 /* ==================== WHY CHOOSE CARDS ==================== */
 .why-us-rows {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 2rem;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -3973,40 +3974,42 @@ textarea.form-input {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 2.5rem 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 600px;
 }
 
 .why-us-row:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255, 140, 0, 0.3);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 140, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .why-us-icon-container {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   border-radius: 20px;
   background: linear-gradient(135deg, var(--orange), var(--gold));
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--navy);
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: bold;
-  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 1.5rem;
   will-change: transform, box-shadow;
 }
 
 .why-us-icon-container:hover {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 10px 30px rgba(255, 140, 0, 0.5);
+  transform: scale(1.08) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.5);
   background: linear-gradient(135deg, var(--gold), var(--orange));
 }
 
@@ -4015,15 +4018,16 @@ textarea.form-input {
 }
 
 .why-us-row-number {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--orange);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
 }
 
 .why-us-row-title {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--cream);
   margin: 0 0 1rem 0;
@@ -4033,8 +4037,9 @@ textarea.form-input {
 .why-us-row-desc {
   font-size: 0.95rem;
   color: rgba(250, 247, 212, 0.7);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
+  max-width: 500px;
 }
 
 /* Icon typography styling */
