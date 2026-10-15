@@ -3,13 +3,12 @@
 
   let scrollRevealsInitialized = false;
 
-  document.documentElement.classList.add('reveal-ready');
-  initScrollReveals();
-
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
 
   function init() {
+    document.documentElement.classList.add('reveal-ready');
+
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
     }
@@ -182,6 +181,9 @@
   }
 
   function initScrollReveals() {
+    if (scrollRevealsInitialized) return;
+    scrollRevealsInitialized = true;
+
     const observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
