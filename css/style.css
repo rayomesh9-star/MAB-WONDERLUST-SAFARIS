@@ -3897,21 +3897,25 @@ textarea.form-input {
 }
 @media (max-width: 900px) { .accommodation-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .accommodation-grid { grid-template-columns: 1fr; } }
+.accommodation-grid { align-items: stretch; }
 .accommodation-grid .experience-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: static !important;
   width: 100% !important;
   margin: 0 !important;
   transform: none !important;
+  height: 100%;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border: none;
+  border: 1px solid rgba(250, 247, 212, 0.08);
   border-radius: 1rem;
   overflow: hidden;
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  transition: box-shadow 0.5s ease, transform 0.4s ease, border-color 0.4s ease;
 }
 .accommodation-grid .experience-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(239, 157, 13, 0.15);
+  box-shadow: 0 0 40px rgba(239, 157, 13, 0.25), 0 20px 60px rgba(0, 0, 0, 0.3);
+  border-color: rgba(239, 157, 13, 0.35);
 }
 .accommodation-grid .experience-card .experience-card-bg {
   position: relative;
@@ -3933,6 +3937,7 @@ textarea.form-input {
 .accommodation-grid .experience-card .experience-card-content {
   position: relative;
   padding: 1.5rem;
+  flex: 1;
 }
 .accommodation-grid .experience-card .experience-title {
   font-size: clamp(1.1rem, 2vw, 1.4rem);
