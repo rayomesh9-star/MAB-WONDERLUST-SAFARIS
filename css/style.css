@@ -3899,28 +3899,27 @@ textarea.form-input {
 @media (max-width: 600px) { .accommodation-grid { grid-template-columns: 1fr; } }
 .accommodation-grid { align-items: stretch; }
 .accommodation-grid .experience-card {
-  display: flex;
-  flex-direction: column;
-  position: static !important;
+  display: block;
+  position: relative !important;
   width: 100% !important;
   margin: 0 !important;
   transform: none !important;
-  height: 100%;
+  height: 280px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(250, 247, 212, 0.08);
+  border: none;
   border-radius: 1rem;
   overflow: hidden;
-  transition: box-shadow 0.5s ease, transform 0.4s ease, border-color 0.4s ease;
+  transition: box-shadow 0.5s ease, transform 0.4s ease;
 }
 .accommodation-grid .experience-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 40px rgba(239, 157, 13, 0.25), 0 20px 60px rgba(0, 0, 0, 0.3);
-  border-color: rgba(239, 157, 13, 0.35);
+  transform: scale(1.03);
+  box-shadow: 0 0 40px rgba(239, 157, 13, 0.3), 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 .accommodation-grid .experience-card .experience-card-bg {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 200px;
+  height: 100%;
   overflow: hidden;
 }
 .accommodation-grid .experience-card .experience-card-bg img {
@@ -3929,28 +3928,35 @@ textarea.form-input {
   object-fit: cover;
   transition: transform 0.6s var(--ease-premium);
   display: block;
+  transform: scale(1);
 }
 .accommodation-grid .experience-card:hover .experience-card-bg img {
   transform: scale(1.08);
 }
-.accommodation-grid .experience-card .experience-card-overlay { display: none; }
+.accommodation-grid .experience-card .experience-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.05) 100%);
+}
 .accommodation-grid .experience-card .experience-card-content {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   padding: 1.5rem;
-  flex: 1;
+  background: linear-gradient(transparent 60%, rgba(0,0,0,0.7) 100%);
 }
 .accommodation-grid .experience-card .experience-title {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 500;
   color: var(--cream);
-  margin: 0 0 0.5rem;
-  transform: none !important;
+  margin: 0 0 0.75rem;
 }
 .accommodation-grid .experience-card .experience-card-desc {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 300;
-  color: rgba(250, 247, 212, 0.5);
-  line-height: 1.7;
+  color: rgba(250, 247, 212, 0.7);
+  line-height: 1.6;
   margin: 0;
 }
 .accommodation-grid .experience-card-glow,
