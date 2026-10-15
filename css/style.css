@@ -3962,23 +3962,19 @@ textarea.form-input {
 /* ==================== WHY CHOOSE ICONS ==================== */
 .why-us-row {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
-.why-us-row.left-icon {
-  padding-left: 120px;
-}
-
-.why-us-row.right-icon {
-  padding-right: 120px;
-}
-
-.why-us-row.center-icon {
+.why-us-row.center-all {
+  flex-direction: column;
   text-align: center;
-  padding: 2rem 0;
+  padding: 2rem;
 }
 
 .why-us-icon-container {
-  position: absolute;
+  position: relative;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -3993,6 +3989,7 @@ textarea.form-input {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 10;
   will-change: transform, box-shadow;
+  margin: 0 auto 1rem auto;
 }
 
 .why-us-icon-container:hover {
@@ -4003,29 +4000,6 @@ textarea.form-input {
 
 .why-us-icon-container:active {
   transform: scale(1.05) translateY(-2px);
-}
-
-.why-us-row.left-icon .why-us-icon-container {
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.why-us-row.right-icon .why-us-icon-container {
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.why-us-row.center-icon {
-  justify-content: center;
-}
-
-.why-us-row.center-icon .why-us-icon-container {
-  position: relative;
-  left: auto;
-  right: auto;
-  margin: 0 auto 1rem auto;
 }
 
 /* Icon typography styling */
