@@ -3959,7 +3959,79 @@ textarea.form-input {
   line-height: 1.6;
   margin: 0;
 }
-/* ==================== ACCOMMODATION PERFORMANCE OPTIMIZATIONS ==================== */
+/* ==================== WHY CHOOSE ICONS ==================== */
+.why-us-row {
+  position: relative;
+}
+
+.why-us-row.left-icon {
+  padding-left: 120px;
+}
+
+.why-us-row.right-icon {
+  padding-right: 120px;
+}
+
+.why-us-row.center-icon {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.why-us-icon-container {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  will-change: transform, box-shadow;
+}
+
+.why-us-icon-container:hover {
+  transform: scale(1.15) translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.5);
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+}
+
+.why-us-icon-container:active {
+  transform: scale(1.05) translateY(-2px);
+}
+
+.why-us-row.left-icon .why-us-icon-container {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.why-us-row.right-icon .why-us-icon-container {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.why-us-row.center-icon {
+  justify-content: center;
+}
+
+.why-us-row.center-icon .why-us-icon-container {
+  position: relative;
+  left: auto;
+  right: auto;
+  margin: 0 auto 1rem auto;
+}
+
+/* Icon typography styling */
+.icon-location::before { content: '📍'; }
+.icon-service::before { content: '🏆'; }
+.icon-sustainable::before { content: '🌿'; }
 /* Optimize accommodation grid card performance */
 .accommodation-grid {
   will-change: transform;
