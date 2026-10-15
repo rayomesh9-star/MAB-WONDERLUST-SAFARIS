@@ -3965,7 +3965,7 @@ textarea.form-input {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -3974,20 +3974,39 @@ textarea.form-input {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
   max-width: 600px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-us-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--orange), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .why-us-row:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 140, 0, 0.2);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 140, 0, 0.08);
+  border-color: rgba(255, 140, 0, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.why-us-row:hover::before {
+  opacity: 1;
 }
 
 .why-us-icon-container {
@@ -4005,16 +4024,20 @@ textarea.form-input {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 1.5rem;
   will-change: transform, box-shadow;
+  position: relative;
+  z-index: 1;
 }
 
-.why-us-icon-container:hover {
-  transform: scale(1.08) rotate(5deg);
-  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.5);
+.why-us-row:hover .why-us-icon-container {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 30px rgba(255, 140, 0, 0.5);
   background: linear-gradient(135deg, var(--gold), var(--orange));
 }
 
 .why-us-row-content {
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .why-us-row-number {
@@ -4024,6 +4047,11 @@ textarea.form-input {
   letter-spacing: 3px;
   margin: 0 0 0.75rem 0;
   text-transform: uppercase;
+  transition: all 0.4s ease;
+}
+
+.why-us-row:hover .why-us-row-number {
+  color: var(--gold);
 }
 
 .why-us-row-title {
@@ -4032,6 +4060,11 @@ textarea.form-input {
   color: var(--cream);
   margin: 0 0 1rem 0;
   letter-spacing: 0.5px;
+  transition: all 0.4s ease;
+}
+
+.why-us-row:hover .why-us-row-title {
+  color: var(--gold);
 }
 
 .why-us-row-desc {
@@ -4040,6 +4073,11 @@ textarea.form-input {
   line-height: 1.7;
   margin: 0;
   max-width: 500px;
+  transition: all 0.4s ease;
+}
+
+.why-us-row:hover .why-us-row-desc {
+  color: rgba(250, 247, 212, 0.9);
 }
 
 /* Icon typography styling */
