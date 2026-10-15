@@ -188,19 +188,14 @@
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1 });
+    }, { 
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
 
     document.querySelectorAll('.reveal').forEach(function (el) {
       observer.observe(el);
     });
-
-    setTimeout(function () {
-      document.querySelectorAll('.reveal').forEach(function (el) {
-        if (!el.classList.contains('visible')) {
-          el.classList.add('visible');
-        }
-      });
-    }, 1500);
   }
 
   function initParallaxImages() {
