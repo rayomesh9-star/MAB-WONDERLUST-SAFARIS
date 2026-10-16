@@ -14,8 +14,8 @@
   .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
 
   .experiences-grid { grid-template-columns: repeat(2, 1fr); }
-  .experience-card:nth-child(1),
-  .experience-card:nth-child(4) { grid-column: span 2; }
+  .experiences-grid .experience-card:nth-child(1),
+  .experiences-grid .experience-card:nth-child(4) { grid-column: span 2; }
 
   .safari-categories { grid-template-columns: repeat(2, 1fr); }
 
@@ -55,9 +55,9 @@
   .hero-title { font-size: clamp(2rem, 8vw, 3.5rem); }
 
   .experiences-grid { grid-template-columns: 1fr; }
-  .experience-card,
-  .experience-card:nth-child(1),
-  .experience-card:nth-child(4) { grid-column: span 1; min-height: 350px; }
+  .experiences-grid .experience-card,
+  .experiences-grid .experience-card:nth-child(1),
+  .experiences-grid .experience-card:nth-child(4) { grid-column: span 1; min-height: 350px; }
 
   .safari-categories { grid-template-columns: 1fr; }
 
@@ -133,8 +133,8 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero-bg img { animation-duration: 25s; }
 
-  .experience-card:nth-child(1),
-  .experience-card:nth-child(4) { min-height: 420px; }
+  .experiences-grid .experience-card:nth-child(1),
+  .experiences-grid .experience-card:nth-child(4) { min-height: 420px; }
 
   .story-card:nth-child(1) { grid-column: span 6; }
   .story-card:nth-child(2) { grid-column: span 6; }

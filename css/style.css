@@ -4103,6 +4103,7 @@ textarea.form-input {
 
 /* Optimize safari wildlife background */
 .accommodation-grid .safari-wildlife-bg img {
+  will-change: auto;
   backface-visibility: hidden;
 }
 
@@ -4120,6 +4121,5 @@ textarea.form-input {
   display: block;
 }
 .hero-bg img {
-  will-change: transform;
   backface-visibility: hidden;
 }
