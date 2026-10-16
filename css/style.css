@@ -1002,10 +1002,10 @@ input, textarea, select {
   transition: border-color 0.5s var(--ease-premium), box-shadow 0.5s var(--ease-premium);
 }
 
-.experience-card:nth-child(1) { grid-column: span 2; min-height: 500px; }
-.experience-card:nth-child(4) { grid-column: span 2; }
-.experience-card:nth-child(5) { grid-column: span 1; }
-.experience-card:nth-child(6) { grid-column: span 1; }
+.experiences-grid .experience-card:nth-child(1) { grid-column: span 2; min-height: 500px; }
+.experiences-grid .experience-card:nth-child(4) { grid-column: span 2; }
+.experiences-grid .experience-card:nth-child(5) { grid-column: span 1; }
+.experiences-grid .experience-card:nth-child(6) { grid-column: span 1; }
 
 .experience-card:hover {
   border-color: rgba(239, 157, 13, 0.4);
@@ -1175,15 +1175,15 @@ input, textarea, select {
 
 @media (max-width: 1024px) {
   .experiences-grid { grid-template-columns: repeat(2, 1fr); }
-  .experience-card:nth-child(1),
-  .experience-card:nth-child(4) { grid-column: span 2; }
+  .experiences-grid .experience-card:nth-child(1),
+  .experiences-grid .experience-card:nth-child(4) { grid-column: span 2; }
 }
 
 @media (max-width: 768px) {
   .experiences-grid { grid-template-columns: 1fr; }
-  .experience-card,
-  .experience-card:nth-child(1),
-  .experience-card:nth-child(4) { grid-column: span 1; min-height: 350px; }
+  .experiences-grid .experience-card,
+  .experiences-grid .experience-card:nth-child(1),
+  .experiences-grid .experience-card:nth-child(4) { grid-column: span 1; min-height: 350px; }
 }
 
 /* ==================== SAFARI & WILDLIFE SECTION ==================== */
@@ -3905,10 +3905,12 @@ textarea.form-input {
   margin: 0 !important;
   transform: none !important;
   height: 280px;
+  min-height: 280px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 1rem;
   overflow: hidden;
+  transition: transform 0.3s var(--ease-premium), box-shadow 0.3s var(--ease-premium);
 }
 .accommodation-grid .experience-card .experience-card-bg {
   position: absolute;
@@ -3921,9 +3923,7 @@ textarea.form-input {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--ease-premium);
   display: block;
-  transform: scale(1);
 }
 .accommodation-grid .experience-card:hover .experience-card-bg img {
   transform: scale(1.08);
@@ -4018,7 +4018,6 @@ textarea.form-input {
   box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 1.5rem;
-  will-change: transform, box-shadow;
   position: relative;
   z-index: 1;
 }
@@ -4082,7 +4081,7 @@ textarea.form-input {
 
 /* Optimize accommodation grid card performance */
 .accommodation-grid .experience-card {
-  will-change: transform, box-shadow;
+  transition: transform 0.3s var(--ease-premium), box-shadow 0.3s var(--ease-premium);
 }
 .accommodation-grid .experience-card:hover {
   transform: translateY(-5px);
@@ -4129,10 +4128,4 @@ textarea.form-input {
 .hero-bg img {
   will-change: transform;
   backface-visibility: hidden;
-}
-.experience-card {
-  will-change: transform;
-}
-.experience-card-bg img {
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
