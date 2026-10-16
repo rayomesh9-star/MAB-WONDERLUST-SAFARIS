@@ -3909,11 +3909,6 @@ textarea.form-input {
   border: none;
   border-radius: 1rem;
   overflow: hidden;
-  transition: box-shadow 0.5s ease, transform 0.4s ease;
-}
-.accommodation-grid .experience-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 40px rgba(239, 157, 13, 0.3), 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 .accommodation-grid .experience-card .experience-card-bg {
   position: absolute;
@@ -4084,113 +4079,41 @@ textarea.form-input {
 .icon-location::before { content: '📍'; }
 .icon-service::before { content: '🏆'; }
 .icon-sustainable::before { content: '🌿'; }
+
 /* Optimize accommodation grid card performance */
-.accommodation-grid {
-  will-change: transform;
-  transform: translateZ(0);
-}
-
 .accommodation-grid .experience-card {
-  will-change: auto;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
 }
-
 .accommodation-grid .experience-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.accommodation-grid .experience-card-bg {
-  will-change: transform;
-  overflow: hidden;
-  transform: translateZ(0);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .accommodation-grid .experience-card-bg img {
-  will-change: auto;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-  transform: scale(1);
+  transition: transform 0.5s var(--ease-premium);
 }
 
 .accommodation-grid .experience-card:hover .experience-card-bg img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
-.accommodation-grid .experience-card-overlay {
-  will-change: opacity;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
-  transition: opacity 0.3s ease;
-}
-
-.accommodation-grid .experience-card:hover .experience-card-overlay {
-  opacity: 0.9;
-}
-
-.accommodation-grid .experience-card-glow {
-  will-change: opacity, box-shadow;
-  opacity: 0;
-  transition: opacity 0.3s ease, box-shadow 0.3s ease;
-  border-radius: inherit;
-}
-
-.accommodation-grid .experience-card:hover .experience-card-glow {
-  opacity: 1;
-  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.1);
-}
-
-.accommodation-grid .experience-card-content {
-  will-change: transform;
-  z-index: 2;
-  transition: transform 0.3s ease;
-}
-
-.accommodation-grid .experience-card:hover .experience-card-content {
-  transform: translateY(-2px);
-}
-
-.accommodation-grid .experience-title {
-  transition: color 0.3s ease;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
-
-.accommodation-grid .experience-card:hover .experience-title {
-  color: var(--cream);
-}
-
-.accommodation-grid .experience-card-desc {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: translateY(0);
-}
-
-.accommodation-grid .experience-card:hover .experience-card-desc {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Optimize image reveals */
 .accommodation-grid .reveal {
   opacity: 0;
-  transform: translateY(40px) translateZ(0);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: opacity, transform;
+  transform: translateY(30px);
+  transition: opacity 0.6s var(--ease-premium), transform 0.6s var(--ease-premium);
 }
 
 .accommodation-grid .reveal.visible {
   opacity: 1;
-  transform: translateY(0) translateZ(0);
+  transform: translateY(0);
 }
 
-/* Optimize Safari wildlife background */
-.accommodation-grid .safari-wildlife-bg {
-  will-change: auto;
-  transform: translateZ(0);
-}
-
+/* Optimize safari wildlife background */
 .accommodation-grid .safari-wildlife-bg img {
-  will-change: auto;
   backface-visibility: hidden;
-  transform: translateZ(0);
 }
+
+/* Common image styling */
 .experience-card-bg img,
 .safari-wildlife-bg img,
 .story-card-bg img,
