@@ -3,6 +3,7 @@
 <head>
   <script>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact MAB WONDERLUST SAFARIS</title>
   <meta name="description" content="Contact Mab Wonderlust Safaris. Start your journey today. Call +254 713 002755 or fill out our inquiry form.">
@@ -108,17 +109,17 @@
         <form class="contact-form reveal reveal-delay-1" action="#" method="POST" aria-label="Inquiry form">
           <div class="form-row">
             <div class="form-group">
-              <input type="text" id="name" name="name" class="form-input" placeholder=" " required>
+              <input type="text" id="name" name="name" class="form-input" placeholder=" " required autocomplete="name">
               <label for="name" class="form-label">Name</label>
             </div>
             <div class="form-group">
-              <input type="email" id="email" name="email" class="form-input" placeholder=" " required>
+              <input type="email" id="email" name="email" class="form-input" placeholder=" " required autocomplete="email">
               <label for="email" class="form-label">Email</label>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <input type="tel" id="phone" name="phone" class="form-input" placeholder=" ">
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder=" " autocomplete="tel">
               <label for="phone" class="form-label">Phone</label>
             </div>
             <div class="form-group">
@@ -158,7 +159,7 @@
             <label for="experience" class="form-label">Preferred Experience</label>
           </div>
           <div class="form-group">
-            <textarea id="message" name="message" class="form-input" rows="4" placeholder=" "></textarea>
+            <textarea id="message" name="message" class="form-input" rows="4" placeholder=" " autocomplete="off"></textarea>
             <label for="message" class="form-label">Message</label>
           </div>
           <div class="form-submit">

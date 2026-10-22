@@ -3,6 +3,7 @@
 <head>
   <script>document.documentElement.classList.add('js')</script>
   <meta charset="UTF-8">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plan Your Journey — MAB WONDERLUST SAFARIS</title>
   <meta name="description" content="Plan your custom journey with Mab Wonderlust Safaris. Every traveler is different — create a personalized Kenya safari or African travel experience.">
@@ -137,17 +138,17 @@
            <form class="planner-form" id="planner-form" aria-label="Journey planning form">
              <div class="form-row">
                <div class="form-group">
-                 <input type="text" id="plan-name" name="name" class="form-input" placeholder=" " required>
+              <input type="text" id="plan-name" name="name" class="form-input" placeholder=" " required autocomplete="name">
                  <label for="plan-name" class="form-label">Full Name</label>
                </div>
                <div class="form-group">
-                 <input type="email" id="plan-email" name="email" class="form-input" placeholder=" " required>
+              <input type="email" id="plan-email" name="email" class="form-input" placeholder=" " required autocomplete="email">
                  <label for="plan-email" class="form-label">Email</label>
                </div>
              </div>
              <div class="form-row">
                <div class="form-group">
-                 <input type="tel" id="plan-phone" name="phone" class="form-input" placeholder=" ">
+                 <input type="tel" id="plan-phone" name="phone" class="form-input" placeholder=" " autocomplete="tel">
                  <label for="plan-phone" class="form-label">Phone</label>
                </div>
                <div class="form-group">
